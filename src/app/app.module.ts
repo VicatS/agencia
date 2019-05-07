@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPrintModule } from 'ngx-print';
+import { ExportAsModule } from 'ngx-export-as';
 
 // components
 import { AppComponent } from './app.component';
@@ -26,7 +28,9 @@ import { AgenciesComponent } from './components/agencies/agencies.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPrintModule,
+    ExportAsModule
   ],
   providers: [AgencyService],
   bootstrap: [AppComponent]

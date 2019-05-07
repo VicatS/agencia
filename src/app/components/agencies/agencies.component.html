@@ -94,49 +94,62 @@
                                       <option value="descripcion">Descripción</option>
                                     </select>
                                 <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                <button type="submit" class="btn btn-primary"> Buscar</button>
+
                             </div>
                         </div>
-                    </div>
-                    <table class="table table-bordered table-striped table-sm">
-                        <thead>
-                            <tr>
-                                <th>Opciones</th>
-                                <th>Nombre</th>
-                                <th>Dirección</th>
-                                <th>Teléfonos</th>
-                                <th>Fecha Límite</th>
-                                <th>Alcaldía</th>
-                                <th>Actividad</th>
-                                <th>Acrónimo</th>
-                                <th>Habilitado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                        <button printTitle="Listado de agencias" printSectionId="printSection" ngxPrint>
+                                <i class="fa fa-print"></i> Imprimir    
+                        </button>&nbsp; &nbsp;
 
-                            <tr *ngFor="let agency of agencyList">
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo" (click)="onEdit(agency)">
+                    </div>
+                    <div id="printSection" #printSection>
+                        <table class="table table-bordered table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Opciones</th>
+                                    <th>Nombre</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfonos</th>
+                                    <th>Fecha Límite</th>
+                                    <th>Alcaldía</th>
+                                    <th>Actividad</th>
+                                    <th>Acrónimo</th>
+                                    <th>Habilitado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let agency of agencyList">
+                                    <td>
+                                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo" (click)="onEdit(agency)">
                                           <i class="icon-pencil"></i>
                                         </button> &nbsp;
-                                    <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(agency.$key)">
+                                        <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(agency.$key)">
                                           <i class="icon-trash"></i>
                                         </button>
-                                </td>
-                                <td>{{ agency.name }}</td>
-                                <td>{{ agency.address }} </td>
-                                <td>{{ agency.phones}}</td>
-                                <td>{{ agency.limitDate}}</td>
-                                <td>{{ agency.townHall}}</td>
-                                <td>{{ agency.activity}}</td>
-                                <td>{{ agency.acronym}}</td>
-                                <td [ngStyle]="{ 'color':agency.enabled==1 ? 'green' : 'red' }">{{ agency.enabled ==1 ? 'SI':'NO' }}
+                                    </td>
+                                    <td>{{ agency.name }}</td>
+                                    <td>{{ agency.address }} </td>
+                                    <td>{{ agency.phones}}</td>
+                                    <td>{{ agency.limitDate}}</td>
+                                    <td>{{ agency.townHall}}</td>
+                                    <td>{{ agency.activity}}</td>
+                                    <td>{{ agency.acronym}}</td>
+                                    <td [ngStyle]="{ 'color':agency.enabled==1 ? 'green' : 'red' }">{{ agency.enabled ==1 ? 'SI':'NO' }}
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button (click)="exportPDF()" class="btn btn-warning float-right">
+                        <i class="fa fa-save"></i> Exportar    
+                    </button>&nbsp; &nbsp;
+                    <button (click)="export()" class="btn btn-warning float-right">
+                        <i class="fa fa-save"></i> Export    
+                    </button>
                     <nav>
                         <ul class="pagination">
                             <li class="page-item">

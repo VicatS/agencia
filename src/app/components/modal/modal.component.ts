@@ -12,9 +12,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+
   constructor(
     private agencyService: AgencyService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
   @ViewChild('btnClose') btnClose: ElementRef;
 
