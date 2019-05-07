@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyDr_r9AiDQOV52r09WHL9g0fnLO8B8z2yM',
+    authDomain: 'tarea-f491a.firebaseapp.com',
+    databaseURL: 'https://tarea-f491a.firebaseio.com',
+    projectId: 'tarea-f491a',
+    storageBucket: 'tarea-f491a.appspot.com',
+    messagingSenderId: '860049434991',
+    appId: '1:860049434991:web:8e760c4be93c1983'
+  }
 };
 
 /*

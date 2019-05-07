@@ -1,0 +1,75 @@
+<!--Inicio del modal agregar/actualizar-->
+<div class="modal fade" id="modalNuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-primary modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    {{ agencyService.selectedAgency.$key ? 'Agregar Agencia' : 'Actualizar Agencia'}}
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+            </div>
+            <div class="modal-body">
+                <form #agencyForm="ngForm" (ngSubmit)="onSubmit(agencyForm)">
+                    <input type="hidden" name="$key" [(ngModel)]="agencyService.selectedAgency.$key">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6 ">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]="agencyService.selectedAgency.name" id="telefonos" class="form-control" required placeholder="Nombre de agencia">
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="telefonos">Telefonos</label>
+                            <input type="text" name="phones" #phones="ngModel" [(ngModel)]="agencyService.selectedAgency.phones" id="telefonos" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12 ">
+                            <label for="address">Dirección</label>
+                            <input type="text" name="address" #address="ngModel" [(ngModel)]="agencyService.selectedAgency.address" id="address" class="form-control" required placeholder="Dirección">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="alcaldia">Alcaldía:</label>
+                                <textarea name="townHall" #townHall="ngModel" [(ngModel)]="agencyService.selectedAgency.townHall" class="form-control" rows="3" id="alcaldia" required placeholder="Pertenece"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="actividad">Actividad:</label>
+                                <textarea name="activity" #activity="ngModel" [(ngModel)]="agencyService.selectedAgency.activity" class="form-control" rows="3" id="actividad" required placeholder="Rubro o actividad"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6 ">
+                            <label for="fechaLimite">Fecha Límite</label>
+                            <input type="date" name="limitDate" #limitDate="ngModel" [(ngModel)]="agencyService.selectedAgency.limitDate" id="limitDate" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="acronimo">Acrónimo</label>
+                            <input type="text" name="acronym" #acronym="ngModel" [(ngModel)]="agencyService.selectedAgency.acronym" id="acronym" class="form-control" required maxlength="5">
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!agencyForm.valid">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!--Fin del modal-->
