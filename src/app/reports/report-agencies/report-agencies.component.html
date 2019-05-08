@@ -1,0 +1,63 @@
+<!-- Contenido Principal -->
+<main class="main">
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <div class="container-fluid">
+        <!-- Ejemplo de tabla Listado -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> Agencias
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <button printTitle="Listado de agencias" printSectionId="printSection" ngxPrint>
+                                <i class="fa fa-print"></i> Imprimir    
+                            </button>&nbsp; &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div id="printSection">
+                    <table class="table table-bordered table-striped table-sm ">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Teléfonos</th>
+                                <th>Fecha Límite</th>
+                                <th>Alcaldía</th>
+                                <th>Actividad</th>
+                                <th>Acrónimo</th>
+                                <th>Habilitado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let agency of agencyList ">
+                                <td>{{ agency.name }}</td>
+                                <td>{{ agency.address }} </td>
+                                <td>{{ agency.phones}}</td>
+                                <td>{{ agency.limitDate}}</td>
+                                <td>{{ agency.townHall}}</td>
+                                <td>{{ agency.activity}}</td>
+                                <td>{{ agency.acronym}}</td>
+                                <td [ngStyle]="{ 'color':agency.enabled==1 ? 'green' : 'red' } ">{{ agency.enabled ==1 ? 'SI':'NO' }}
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin ejemplo de tabla Listado -->
+
+</main>
+<!-- /Fin del contenido principal -->

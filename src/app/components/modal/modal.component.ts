@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 // Services
 import { AgencyService } from '../../services/agency.service';
 import { ToastrService } from 'ngx-toastr';
+import { Agency } from 'src/app/models/agency';
 
 @Component({
   selector: 'app-modal',
@@ -12,10 +13,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-
   constructor(
     private agencyService: AgencyService,
-    private toastrService: ToastrService,
+    private toastrService: ToastrService
   ) {}
   @ViewChild('btnClose') btnClose: ElementRef;
 
@@ -41,5 +41,12 @@ export class ModalComponent implements OnInit {
     }
     agencyForm.resetForm();
     this.btnClose.nativeElement.click();
+  }
+
+  resetForm(agencyForm?: NgForm) {
+    if (agencyForm != null) {
+      agencyForm.reset();
+      this.agencyService.selectedAgency = new Agency();
+    }
   }
 }
