@@ -49,13 +49,13 @@
                         <tr *ngFor="let agency of agencyList">
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo" (click)="onEdit(agency)">
-                                    <i class="icon-pencil"></i>
+                                    <i class="icon-pencil" title="Edit"></i>
                                 </button> &nbsp;
                                 <!-- <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(agency.$key)">
                                     <i class="icon-trash"></i>
                                 </button> -->
                                 <button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalInhabilitar" (click)="disableAgency(agency)">
-                                    <i class=" icon-trash "></i>
+                                    <i class="icon-lock" title="Enabled"></i>
                                 </button>
                             </td>
                             <td>{{ agency.name }}</td>
