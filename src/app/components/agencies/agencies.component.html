@@ -49,11 +49,14 @@
                         <tr *ngFor="let agency of agencyList">
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo" (click)="onEdit(agency)">
-                                          <i class="icon-pencil"></i>
-                                        </button> &nbsp;
-                                <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(agency.$key)">
-                                          <i class="icon-trash"></i>
-                                        </button>
+                                    <i class="icon-pencil"></i>
+                                </button> &nbsp;
+                                <!-- <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(agency.$key)">
+                                    <i class="icon-trash"></i>
+                                </button> -->
+                                <button type="submit" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalInhabilitar" (click)="disableAgency(agency)">
+                                    <i class=" icon-trash "></i>
+                                </button>
                             </td>
                             <td>{{ agency.name }}</td>
                             <td>{{ agency.address }} </td>
@@ -62,39 +65,39 @@
                             <td>{{ agency.townHall}}</td>
                             <td>{{ agency.activity}}</td>
                             <td>{{ agency.acronym}}</td>
-                            <td [ngStyle]="{ 'color':agency.enabled==1 ? 'green' : 'red' }">{{ agency.enabled ==1 ? 'SI':'NO' }}
-
+                            <td [ngStyle]="{ 'color':agency.enabled==1 ? 'green' : 'red' } ">
+                                {{ agency.enabled ==1 ? 'SI':'NO' }}
                             </td>
                         </tr>
 
                     </tbody>
                 </table>
                 <!-- </div> -->
-                <button (click)="exportPDF()" class="btn btn-warning float-right">
-                        <i class="fa fa-save"></i> Exportar    
+                <button (click)="exportPDF() " class="btn btn-warning float-right ">
+                        <i class="fa fa-save "></i> Exportar    
                     </button>&nbsp; &nbsp;
-                <button (click)="export()" class="btn btn-warning float-right">
-                        <i class="fa fa-save"></i> Export    
+                <button (click)="export() " class="btn btn-warning float-right ">
+                        <i class="fa fa-save "></i> Export    
                     </button>
                 <nav>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#">Ant</a>
+                    <ul class="pagination ">
+                        <li class="page-item ">
+                            <a class="page-link " href="# ">Ant</a>
                         </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
+                        <li class="page-item active ">
+                            <a class="page-link " href="# ">1</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
+                        <li class="page-item ">
+                            <a class="page-link " href="# ">2</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
+                        <li class="page-item ">
+                            <a class="page-link " href="# ">3</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
+                        <li class="page-item ">
+                            <a class="page-link " href="# ">4</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Sig</a>
+                        <li class="page-item ">
+                            <a class="page-link " href="# ">Sig</a>
                         </li>
                     </ul>
                 </nav>
@@ -107,3 +110,4 @@
 <!-- /Fin del contenido principal -->
 
 <app-modal></app-modal>
+<app-modal-enabled></app-modal-enabled>

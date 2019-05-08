@@ -7,7 +7,7 @@ import { Agency } from '../models/agency';
 
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AgencyService {
   agencyList: AngularFireList<any>;
@@ -16,7 +16,7 @@ export class AgencyService {
   constructor(private firebaseDatabase: AngularFireDatabase) {}
 
   getAgencies() {
-    return (this.agencyList = this.firebaseDatabase.list("agencies"));
+    return (this.agencyList = this.firebaseDatabase.list('agencies'));
   }
 
   insertAgencies(agency: Agency) {
@@ -46,6 +46,13 @@ export class AgencyService {
 
   disableAgency(agency: Agency) {
     this.agencyList.update(agency.$key, {
+      name: agency.name,
+      address: agency.address,
+      phones: agency.phones,
+      limitDate: agency.limitDate,
+      townHall: agency.townHall,
+      activity: agency.activity,
+      acronym: agency.acronym,
       enabled: agency.enabled
     });
   }

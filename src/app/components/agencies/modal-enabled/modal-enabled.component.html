@@ -1,0 +1,45 @@
+<!-- Inicio del modal Eliminar -->
+<div class="modal fade" id="modalInhabilitar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Inhabilitar Agencia</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+            </div>
+            <div class="modal-body">
+                <form #enabledForm="ngForm" (ngSubmit)="onSubmit(enabledForm)">
+                    <input type="hidden" name="$key" [(ngModel)]="agencyService.selectedAgency.$key">
+                    <input type="hidden" name="name" #name="ngModel" [(ngModel)]="agencyService.selectedAgency.name" id="telefonos" class="form-control" required placeholder="Nombre de agencia">
+                    <input type="hidden" name="phones" #phones="ngModel" [(ngModel)]="agencyService.selectedAgency.phones" id="telefonos" class="form-control" required>
+                    <input type="hidden" name="address" #address="ngModel" [(ngModel)]="agencyService.selectedAgency.address" id="address" class="form-control" required placeholder="Dirección">
+                    <input type="hidden" name="townHall" #townHall="ngModel" [(ngModel)]="agencyService.selectedAgency.townHall" class="form-control" rows="3" id="alcaldia" required placeholder="Pertenece">
+                    <input type="hidden" name="activity" #activity="ngModel" [(ngModel)]="agencyService.selectedAgency.activity" class="form-control" rows="3" id="actividad" required placeholder="Rubro o actividad">
+                    <input type="hiden" name="limitDate" #limitDate="ngModel" [(ngModel)]="agencyService.selectedAgency.limitDate" id="limitDate" class="form-control" required>
+                    <input type="hidden" name="acronym" #acronym="ngModel" [(ngModel)]="agencyService.selectedAgency.acronym" id="acronym" class="form-control" required maxlength="5">
+
+                    <div class="form-group">
+                        <label for="">Estado Actual: </label>
+                        <input type="text" [value]=" agencyService.selectedAgency.enabled ==1 ? 'HABILITADO':'DESHABILITADO'" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Acciones</label>
+                        <select name="enabled" id="" #enabled="ngModel" [(ngModel)]="agencyService.selectedAgency.enabled">
+                                <option [value]="0">Deshabilitar</option>
+                                <option [value]="1">Habilitar</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" #btnClose class="btn btn-secondary" data-dismiss="modal" (click)="resetForm(enabledForm)">Cerrar</button>
+                        <button type="submit" class="btn btn-danger">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- Fin del modal Eliminar -->

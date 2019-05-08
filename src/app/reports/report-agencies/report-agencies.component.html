@@ -16,13 +16,13 @@
                 <div class="form-group row">
                     <div class="col-md-6">
                         <div class="input-group">
-                            <button printTitle="Listado de agencias" printSectionId="printSection" ngxPrint>
-                                <i class="fa fa-print"></i> Imprimir    
+                            <button [printStyle]="{th : {'color': 'red'}, td : {'border': 'solid 1px'}}" printTitle=" Listado de agencias " printSectionId="printSection " ngxPrint>
+                                <i class="fa fa-print "></i> Imprimir    
                             </button>&nbsp; &nbsp;
                         </div>
                     </div>
                 </div>
-                <div id="printSection">
+                <div id="printSection ">
                     <table class="table table-bordered table-striped table-sm ">
                         <thead>
                             <tr>

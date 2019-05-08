@@ -14,12 +14,12 @@ import { Agency } from 'src/app/models/agency';
 })
 export class ModalComponent implements OnInit {
   constructor(
-    private agencyService: AgencyService,
+    public agencyService: AgencyService,
     private toastrService: ToastrService
   ) {}
   @ViewChild('btnClose') btnClose: ElementRef;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.agencyService.getAgencies();
   }
 
@@ -40,6 +40,26 @@ export class ModalComponent implements OnInit {
       this.btnClose.nativeElement.click();
     }
     agencyForm.resetForm();
+    this.btnClose.nativeElement.click();
+  }
+
+  onEnabled(enabledForm: NgForm) {
+    if (enabledForm.value.$key == null) {
+      this.agencyService.insertAgencies(enabledForm.value);
+      this.toastrService.success(
+        'Successfull Operation',
+        'Successfull created'
+      );
+    } else {
+      this.agencyService.updateAgency(enabledForm.value);
+      this.toastrService.success(
+        'Successfull Operation',
+        'Successfull updated'
+      );
+      enabledForm.resetForm();
+      this.btnClose.nativeElement.click();
+    }
+    enabledForm.resetForm();
     this.btnClose.nativeElement.click();
   }
 

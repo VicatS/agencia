@@ -25,6 +25,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ReportAgenciesComponent } from './reports/report-agencies/report-agencies.component';
+import { ModalEnabledComponent } from './components/agencies/modal-enabled/modal-enabled.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReportAgenciesComponent } from './reports/report-agencies/report-agenci
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ReportAgenciesComponent
+    ReportAgenciesComponent,
+    ModalEnabledComponent
   ],
   imports: [
     BrowserModule,

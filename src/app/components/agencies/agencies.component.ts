@@ -6,6 +6,7 @@ import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
 import { AgencyService } from '../../services/agency.service';
 import { Agency } from '../../models/agency';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 declare var $;
 
@@ -53,7 +54,18 @@ export class AgenciesComponent implements OnInit {
       });
   }
 
+  resetForm(agencyForm?: NgForm) {
+    if (agencyForm != null) {
+      agencyForm.reset();
+      this.agencyService.selectedAgency = new Agency();
+    }
+  }
+
   onEdit(agency: Agency) {
+    this.agencyService.selectedAgency = Object.assign({}, agency);
+  }
+
+  disableAgency(agency: Agency) {
     this.agencyService.selectedAgency = Object.assign({}, agency);
   }
 
